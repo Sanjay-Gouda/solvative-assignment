@@ -1,6 +1,6 @@
-# after cloning the repo 
+# Please Follow Below steps to get started 
 
-
+## After cloning the repos
 
 ```bash
   cd solvative-assignment
