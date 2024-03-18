@@ -86,47 +86,55 @@ const Table = () => {
       <Searchbar onChange={handleChange} handleKeyDown={handleKeyDown} />
 
       <div className="table-wrapper">
-        {!tableData?.length ? (
-          <EmptyState />
+        {loader ? (
+          <span className="loader"></span>
         ) : (
-          <table>
-            <tr className="theader">
-              <th>#</th>
-              <th>Place Name</th>
-              <th>Country</th>
-            </tr>
+          <>
+            {!tableData?.length ? (
+              <EmptyState />
+            ) : (
+              <>
+                <table>
+                  <tr className="theader">
+                    <th>#</th>
+                    <th>Place Name</th>
+                    <th>Country</th>
+                  </tr>
 
-            {tableData?.map((city, ind) => (
-              <tr key={city?.id}>
-                <td>{ind + 1}</td>
-                <td>{city?.placeName}</td>
-                <td>
-                  <img
-                    src={`https://flagsapi.com/${city?.countryCode}/flat/24.png`}
-                  />
-                </td>
-              </tr>
-            ))}
-          </table>
+                  {tableData?.map((city, ind) => (
+                    <tr key={city?.id}>
+                      <td>{ind + 1}</td>
+                      <td>{city?.placeName}</td>
+                      <td>
+                        <img
+                          src={`https://flagsapi.com/${city?.countryCode}/flat/24.png`}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </table>
+
+                {tableData?.length !== 0 && (
+                  <div className="pagination-wrapper">
+                    <div className="pagination-btn-wrapper">
+                      {[...Array(pageSize)]?.map((_, i) => (
+                        <button className="default-button">{i + 1}</button>
+                      ))}
+                    </div>
+                    <input
+                      className="user-input"
+                      placeholder="Enter Limit and press Enter"
+                      onChange={handleLimitChange}
+                      onKeyDown={handleKeyDown}
+                    />
+                  </div>
+                )}
+              </>
+            )}
+          </>
         )}
 
-        {loader && <span className="loader"></span>}
-
-        {tableData?.length !== 0 && (
-          <div className="pagination-wrapper">
-            <div className="pagination-btn-wrapper">
-              {[...Array(pageSize)]?.map((_, i) => (
-                <button className="default-button">{i + 1}</button>
-              ))}
-            </div>
-            <input
-              className="user-input"
-              placeholder="Enter Limit and press Enter"
-              onChange={handleLimitChange}
-              onKeyDown={handleKeyDown}
-            />
-          </div>
-        )}
+        {/* {loader && <span className="loader"></span>} */}
       </div>
     </>
   );
