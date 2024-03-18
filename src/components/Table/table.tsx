@@ -58,7 +58,11 @@ const Table = () => {
 
   /*  onSearch change  */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
+    if (e.target.value === "") {
+      setSearchText("del");
+    } else {
+      setSearchText(e.target.value);
+    }
   };
 
   /* Call API If user Press Enter Button */
