@@ -52,6 +52,10 @@ const Table = () => {
     }
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   /*  onSearch change  */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -81,7 +85,6 @@ const Table = () => {
     <>
       <Searchbar onChange={handleChange} handleKeyDown={handleKeyDown} />
 
-      <button onClick={() => getData()}>Call API</button>
       <div className="table-wrapper">
         {!tableData?.length ? (
           <EmptyState />

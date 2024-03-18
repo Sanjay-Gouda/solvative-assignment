@@ -1,4 +1,3 @@
-import React from "react";
 import "./empty-state.style.css";
 const EmptyState = () => {
   return (
