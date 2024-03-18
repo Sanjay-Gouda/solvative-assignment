@@ -39,3 +39,39 @@ table {
     background-color: #04AA6D;
   color: white;
   }
+
+  .pagination-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pagination-btn-wrapper{
+width:50%;
+  }
+
+  .user-input{
+    color: rgb(33, 37, 41);
+    width:50%;
+    height: 38px;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    /* border-color: rgb(206, 212, 218); */
+    padding: 6px 12px;
+    outline: none;
+    border:1px solid rgb(206, 212, 218);
+    border-radius:4px;
+  }
+
+  .user-input:focus {
+   
+    border-color: #7952b3; 
+    box-shadow: 0 0 0 3px rgb(121 82 179 / 25%)/* Change border color on focus */
+  }
+
+  .table-wrapper{
+    /* overflow-x: auto; */
+    width:500px;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+  }
